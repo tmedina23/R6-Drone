@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>test mctesterson</title>
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	</head>
+    <div class="btns">
+      <button class="button1" type="button" onclick="left()">left</button>
+      <button class="button2" type="button" onclick="right()">right</button>
+      <button class="button3" type="button" onclick="stop()">STOP!!</button>
+    </div>
+	<script>
+		document.addEventListener('keydown', (e) => {
+ 			console.log('e');
+			if (!e.repeat && e == 'e') {
+  				left();
+			} else if (!e.repeat && e == 'p') {
+				stop();
+			}
+		});
+		
+		function left() {
+			$.ajax({
+				url: '/left',
+				type: 'POST',
+				success: function(response) {
+					console.log(response);
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+		}
+
+		function right() {
+			$.ajax({
+				url: '/right',
+				type: 'POST',
+				success: function(response) {
+					console.log(response);
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+		}
+
+		function stop() {
+                        $.ajax({
+                                url: '/stop_all',
+                                type: 'POST',
+                                success: function(response) {
+                                        console.log(response);
+                                },
+                                error: function(error) {
+                                        console.log(error);
+                                }
+                        });
+                }
+	</script>
+	</body>
+</html>
