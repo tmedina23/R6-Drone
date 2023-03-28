@@ -5,14 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-
   <img class="image2" src="https://r6dronetest.thomasmedina.repl.co/drone_overlay.png" />
-  
-  <script src="script.js"></script>
+  <button class="up" onclick="forward()">1</button>
+  <button class="right" onclick="right()">2</button>
+  <button class="down" onclick="backward()">3</button>
+  <button class="left" onclick="left()">4</button>
+
 </body>
 
 <style>
@@ -37,14 +38,64 @@ html {
 button {
   cursor: pointer;
   position: absolute;
+  width: 200px;
+  height: 200px;
   left: 43%;
   border: 0px;
-  border-radius: 0px;
+  border-radius: 50%;
 }
 
-.b2 {
-  margin-left: 120px;
-}
 </style>
+
+<script>
+function forward() {
+  $.ajax({
+		url: '/forward',
+		type: 'POST',
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+}
+function backward() {
+  $.ajax({
+		url: '/backward',
+		type: 'POST',
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+}
+function left() {
+  $.ajax({
+		url: '/left',
+		type: 'POST',
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+}
+function right() {
+  $.ajax({
+		url: '/right',
+		type: 'POST',
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+}
+</script>
 
 </html>

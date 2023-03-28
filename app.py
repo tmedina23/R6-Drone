@@ -40,10 +40,17 @@ def stop():
         sv.stopAll()
         return render_template('index.html')
 
-@app.route('/test', methods=['GET', 'POST'])
-def testroute():
-        sv.test(0)
-        return render_template('index.html')
+
+
+@app.route('/forward', methods=['GET', 'POST'])
+def f():
+	sv.forward()
+	return render_template('index.html')
+
+@app.route('/backward', methods=['GET', 'POST'])
+def b():
+	sv.backward()
+	return render_template('index.html')
 
 @app.route('/left', methods=['GET', 'POST'])
 def l():
@@ -52,7 +59,10 @@ def l():
 
 @app.route('/right', methods=['GET', 'POST'])
 def r():
-	return render_template('index.html')
+        sv.right()
+        return render_template('index.html')
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
