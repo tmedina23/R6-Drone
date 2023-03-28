@@ -7,9 +7,9 @@ def get_frame():
     #set video capture device with device number, variables above
     camera = cv2.VideoCapture(0)
     #camera width
-    w=426
+    w=640
     #camera height
-    h=240
+    h=360
     camera.set(3,w)
     camera.set(4,h)
     camera.set(cv2.CAP_PROP_FPS, 20)
