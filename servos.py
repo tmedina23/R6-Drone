@@ -24,5 +24,4 @@ def stopAll():
 def left1():
         left.throttle = 0.5
 
-left1()
-stopAll()
+test(1)
