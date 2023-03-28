@@ -5,7 +5,6 @@ import cv2
 from adafruit_servokit import *
 
 
-
 kit = ServoKit(channels=16)
 
 kit.continuous_servo[0].throttle = 0
