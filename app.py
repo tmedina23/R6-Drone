@@ -1,37 +1,7 @@
 import os
 from flask import Flask, render_template, Response, request
-from time import *
 import cv2
-from adafruit_servokit import *
-
-
-kit = ServoKit(channels=16)
-
-kit.continuous_servo[0].throttle = 0
-
-frontleft = kit.continuous_servo[1]
-frontright = kit.continuous_servo[0]
-rearleft = kit.continuous_servo[2]
-rearright = kit.continuous_servo[3]
-
-def test(servo_num):
-        kit.continuous_servo[servo_num].throttle = -0.5
-        sleep(1)
-        kit.continuous_servo[servo_num].throttle = 0.5
-        sleep(1)
-        kit.continuous_servo[servo_num].throttle = 0
-
-def stopAll():
-        frontleft.throttle = 0
-        frontright.throttle = 0
-        rearleft.throttle = 0
-        rearright.throttle = 0
-
-def left():
-        frontleft.throttle = -0.5
-        rearleft.throttel = -0.5
-        frontright.throttle = 0.5
-        frontleft.throttle = 0.5
+import servos as sv
 
 def get_frame():
     #set video capture device with device number, variables above
@@ -63,17 +33,17 @@ def video_feed0():
 
 @app.route('/stop_all')
 def stop():
-        stopAll()
+        sv.stopAll()
         return render_template('index.html')
 
 @app.route('/test', methods=['GET', 'POST'])
 def testroute():
-        test(0)
+        sv.test(0)
         return render_template('index.html')
 
 @app.route('/left', methods=['GET', 'POST'])
 def l():
-	left()
+	sv.left()
 	return render_template('index.html')
 
 @app.route('/right', methods=['GET', 'POST'])
