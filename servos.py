@@ -19,4 +19,4 @@ def left1(servo_num):
         kit.continuous_servo[servo_num].throttle = 0.5
 
 left1(1)
-stopAll
+stopAll()
