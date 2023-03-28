@@ -14,7 +14,7 @@ def get_frame():
     camera.set(4,h)
     camera.set(cv2.CAP_PROP_FPS, 20)
 
-    alpha = 0.5
+    alpha = 0.25
     beta = 30
 
     while True:
