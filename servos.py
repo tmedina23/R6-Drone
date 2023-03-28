@@ -23,3 +23,6 @@ def stopAll():
 
 def left():
         left.throttle = 0.5
+
+left()
+stopAll()
