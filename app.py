@@ -35,7 +35,7 @@ def index():
 def video_feed():
     return Response(get_frame(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/stop_all')
+@app.route('/stopall')
 def sa():
         sv.stopAll()
         return render_template('index.html')
