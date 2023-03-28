@@ -21,8 +21,8 @@ def stopAll():
         left.throttle = 0
         right.throttle = 0
 
-def left():
+def left1():
         left.throttle = 0.5
 
-left()
+left1()
 stopAll()
