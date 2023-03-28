@@ -78,8 +78,8 @@ function stopall() {
   $.ajax({
 		url: '/stopall',
 		type: 'POST',
-		success: function(response) {
-			console.log(response);
+		success: function() {
+			console.log("shutdown");
 		},
 		error: function(error) {
 			console.log(error);
