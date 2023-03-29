@@ -74,6 +74,49 @@ button {
 </style>
 
 <script>
+document.addEventListener("keydown", logKeydown);
+document.addEventListener("keyup", logKeyup);
+let Wdown = false;
+let Adown = false;
+let Sdown = false;
+let Ddown = false;
+
+function logKeydown(e) {
+  if(e.code == "KeyW" && !Wdown){
+    console.log("forward: down");
+    Wdown = true;
+  } else if (e.code == "KeyA" && !Adown){
+    console.log("left: down");
+    Adown = true;
+  } else if (e.code == "KeyS" && !Sdown){
+    console.log("backward: down");
+    Sdown = true;
+  } else if (e.code == "KeyD" && !Ddown){
+    console.log("right: down");
+    Ddown = true;
+  }
+}
+
+function logKeyup(e) {
+  if(e.code == "KeyW" && Wdown){
+    console.log("forward: up");
+    Wdown = false;
+	stopall()
+  } else if (e.code == "KeyA" && Adown){
+    console.log("left: up");
+    Adown = false;
+	stopall()
+  } else if (e.code == "KeyS" && Sdown){
+    console.log("backward: up");
+    Sdown = false;
+	stopall()
+  } else if (e.code == "KeyD" && Ddown){
+    console.log("right: up");
+    Ddown = false;
+	stopall()
+  }
+}
+
 function stopall() {
   $.ajax({
 		url: '/stopall',
