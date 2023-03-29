@@ -85,15 +85,19 @@ function logKeydown(e) {
   if(e.code == "KeyW" && !Wdown){
     console.log("forward: down");
     Wdown = true;
+    forward();
   } else if (e.code == "KeyA" && !Adown){
     console.log("left: down");
     Adown = true;
+    left();
   } else if (e.code == "KeyS" && !Sdown){
     console.log("backward: down");
     Sdown = true;
+    backward();
   } else if (e.code == "KeyD" && !Ddown){
     console.log("right: down");
     Ddown = true;
+    right();
   }
 }
 
@@ -101,19 +105,19 @@ function logKeyup(e) {
   if(e.code == "KeyW" && Wdown){
     console.log("forward: up");
     Wdown = false;
-	stopall()
+	  stopall()
   } else if (e.code == "KeyA" && Adown){
     console.log("left: up");
     Adown = false;
-	stopall()
+	  stopall()
   } else if (e.code == "KeyS" && Sdown){
     console.log("backward: up");
     Sdown = false;
-	stopall()
+	  stopall()
   } else if (e.code == "KeyD" && Ddown){
     console.log("right: up");
     Ddown = false;
-	stopall()
+	  stopall()
   }
 }
 
