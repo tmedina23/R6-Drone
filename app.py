@@ -15,7 +15,7 @@ def get_frame():
     h=360
     camera.set(3,w)
     camera.set(4,h)
-    camera.set(cv2.CAP_PROP_FPS, 20)
+    camera.set(cv2.CAP_PROP_FPS, 100)
 
     alpha = 0.3
     beta = 50
@@ -27,7 +27,7 @@ def get_frame():
         newFrame = cv2.convertScaleAbs(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
         faces = face_cascade.detectMultiScale(newFrame, 1.1, 4)
         for (x, y, w, h) in faces:
-            cv2.rectangle(newFrame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            cv2.rectangle(newFrame, (x, y), (x+w, y+h), (189, 51, 42), 2)
 
         yield (b'--frame\r\n'
                 b'Content-Type: image/jpeg\r\n\r\n' + cv2.imencode('.jpg', newFrame)[1].tobytes() + b'\r\n\r\n')
