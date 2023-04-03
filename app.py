@@ -3,6 +3,9 @@ from flask import Flask, render_template, Response, request
 import cv2
 import servos as sv
 
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+
 def get_frame():
     #set video capture device with device number, variables above
     camera = cv2.VideoCapture(0)
@@ -22,6 +25,11 @@ def get_frame():
         if not ret:
             break
         newFrame = cv2.convertScaleAbs(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), alpha=alpha, beta=beta)
+        graytemp = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(graytemp, 1.1, 4)
+        for (x, y, w, h) in faces:
+            cv2.rectangle(newFrame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+
         yield (b'--frame\r\n'
                 b'Content-Type: image/jpeg\r\n\r\n' + cv2.imencode('.jpg', newFrame)[1].tobytes() + b'\r\n\r\n')
 

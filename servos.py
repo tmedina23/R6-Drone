@@ -10,10 +10,13 @@ rightsv = kit.continuous_servo[0]
 leftsv.throttle = 0
 rightsv.throttle = 0
 
+clockwise = 0.5
+counterclockwise = -0.5
+
 def test(servo_num):
-    kit.continuous_servo[servo_num].throttle = -0.5
+    kit.continuous_servo[servo_num].throttle = counterclockwise
     sleep(1)
-    kit.continuous_servo[servo_num].throttle = 0.5
+    kit.continuous_servo[servo_num].throttle = clockwise
     sleep(1)
     kit.continuous_servo[servo_num].throttle = 0
 
