@@ -24,7 +24,7 @@ def get_frame():
         ret, frame = camera.read()
         if not ret:
             break
-        newFrame = cv2.convertScaleAbs(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), alpha=alpha, beta=beta)
+        newFrame = cv2.convertScaleAbs(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
         graytemp = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(graytemp, 1.1, 4)
         for (x, y, w, h) in faces:
