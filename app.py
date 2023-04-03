@@ -25,8 +25,7 @@ def get_frame():
         if not ret:
             break
         newFrame = cv2.convertScaleAbs(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
-        graytemp = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = face_cascade.detectMultiScale(graytemp, 1.1, 4)
+        faces = face_cascade.detectMultiScale(newFrame, 1.1, 4)
         for (x, y, w, h) in faces:
             cv2.rectangle(newFrame, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
